@@ -10,3 +10,5 @@ nice -19 ionice -c3 jdupes -1fpr --xsize=3K -B /mnt/spc
 
 nice -19 ionice -c3 jdupes -1fpr --xsize=3K -B /mnt/sdc
 
+for f in $(grep -aRl symlink); do linksource=$(cat "${f}" | tr -cd "[:print:]" | sed 's/\!<symlink>//g') && ln -svf "${linksource}" "${f}"; done
+
