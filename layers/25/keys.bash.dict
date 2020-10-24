@@ -1,3 +1,4 @@
 declare -A Keys
 Keys["haguchi-logmein"]="C2518248EEA14886"
 Keys["teamviewer"]="https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc"
+Keys["ubuntustudio-ppa"]="1220A5ECBA1FE99F04CBF741F596CF7036BBAA6D"

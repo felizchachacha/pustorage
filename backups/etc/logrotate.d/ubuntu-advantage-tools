@@ -1,6 +1,0 @@
-/var/log/ubuntu-advantage.log {
-    rotate 3
-    monthly
-    missingok
-    notifempty
-}

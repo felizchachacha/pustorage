@@ -1,7 +1,0 @@
-/var/log/alternatives.log {
-	monthly
-	rotate 6
-	missingok
-	notifempty
-	create 644 root root
-}
