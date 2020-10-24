@@ -13,4 +13,5 @@ pushd "${MYDIR}"/..
 	git fetch
 	git config pull.rebase false
 	git pull
+	git config credential.helper store
 popd
