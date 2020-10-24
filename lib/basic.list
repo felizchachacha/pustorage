@@ -5,6 +5,7 @@ aptitude
 apt-transport-https
 apt-utils
 bash-completion
+build-essential
 ca-certificates
 cifs-utils
 coreutils
@@ -46,7 +47,6 @@ smartmontools
 software-properties-common
 ssh
 strace
-sux
 sysstat
 tar
 tcpdump

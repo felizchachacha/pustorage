@@ -8,7 +8,7 @@ pushd /opt/storj
 
 # https://documentation.storj.io/dependencies/identity
 
-curl -CL https://github.com/storj/storj/releases/latest/download/identity_linux_amd64.zip -o identity_linux_amd64.zip
+wget https://github.com/storj/storj/releases/latest/download/identity_linux_amd64.zip -O identity_linux_amd64.zip
 unzip -o identity_linux_amd64.zip
 chmod +x identity
 
