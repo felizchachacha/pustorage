@@ -1,0 +1,4 @@
+[submodule "layers/26/26/opt/rclone-mount-manager"]
+	path = layers/26/26/opt/rclone-mount-manager
+	url = https://github.com/felizchachacha/rclone-mount-manager.git
+	branch = master

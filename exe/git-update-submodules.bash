@@ -6,7 +6,7 @@ readonly MYDIR=$(dirname $(realpath ${0}))
 
 pushd ${MYDIR}
 
-./apt-is-installed.bash git || apt -y install git
+which git || apt -y install git
 
 git submodule update --init
 git submodule foreach git fetch
