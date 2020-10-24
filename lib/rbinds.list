@@ -12,7 +12,7 @@
 /var/mail
 /var/spool
 /var/tmp
-/home/kubuntu
+/home/ubuntu-studio
 /root
 /var/lib/logmein-hamachi
 /usr/local
