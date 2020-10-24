@@ -10,6 +10,4 @@ pushd ${MYDIR}
 
 	../../exe/aptilists.bash -y install custom.list basic.list withgui.list
 
-	systemctl restart ssh &
-
 popd
