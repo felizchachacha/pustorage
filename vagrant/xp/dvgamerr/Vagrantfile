@@ -1,0 +1,3 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "dvgamerr/win-xp-sp3"
+end

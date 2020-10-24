@@ -1,0 +1,4 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "therealslimpagey/Windows_Server_2003_Enterprise_R2_puppet"
+  config.vm.box_version = "0.1.0"
+end

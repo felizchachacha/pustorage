@@ -1,0 +1,4 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "lluccia/winxp-rm"
+  config.vm.box_version = "0.9.0"
+end

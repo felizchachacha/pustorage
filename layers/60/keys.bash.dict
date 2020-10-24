@@ -1,0 +1,12 @@
+declare -A Keys
+Keys["spotify"]="https://download.spotify.com/debian/pubkey_0D811D58.gpg"
+Keys["syncthing"]="https://syncthing.net/release-key.txt"
+Keys["kde-diskmonitor"]="1682FA57B601B2EC6DC946E73FE9DD06B479AB81"
+Keys["gitfs"]="15E2F69969F5EF4F46F14A02C9247EBC3EE61981"
+Keys["oracle_vbox_2016"]="https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+Keys["oracle_vbox"]="https://www.virtualbox.org/download/oracle_vbox.asc"
+Keys["zrepl"]="https://zrepl.cschwarz.com/apt/apt-key.asc"
+Keys["waterfoxbintray"]="https://bintray.com/user/downloadSubjectPublicKey?username=hawkeye116477"
+Keys["waterfoxsuse"]="https://download.opensuse.org/repositories/home:hawkeye116477:waterfox/xUbuntu_20.04/Release.key"
+Keys["skype"]="https://repo.skype.com/data/SKYPE-GPG-KEY"
+Keys["xalt7x"]="8718D33A1E18AF7EC6416643C5867B73AA69A7C1" # https://launchpad.net/~xalt7x/+archive/ubuntu/chromium-deb-vaapi and https://launchpad.net/~xalt7x/+archive/ubuntu/kubuntu-focal

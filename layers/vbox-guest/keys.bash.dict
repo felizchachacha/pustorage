@@ -1,0 +1,3 @@
+declare -A Keys
+Keys["oracle_vbox_2016"]="https://www.virtualbox.org/download/oracle_vbox_2016.asc"
+Keys["oracle_vbox"]="https://www.virtualbox.org/download/oracle_vbox.asc"

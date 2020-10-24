@@ -1,0 +1,3 @@
+declare -A Keys
+Keys["haguchi-logmein"]="C2518248EEA14886"
+Keys["teamviewer"]="https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc"

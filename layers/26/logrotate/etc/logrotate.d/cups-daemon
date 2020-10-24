@@ -1,0 +1,11 @@
+/var/log/cups/*log {
+	daily
+	missingok
+	rotate 3
+	sharedscripts
+	postrotate
+		invoke-rc.d --quiet cups restart > /dev/null
+	endscript
+	notifempty
+	create
+}

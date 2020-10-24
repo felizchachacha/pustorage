@@ -1,0 +1,7 @@
+/var/log/apport.log {
+       daily
+       rotate 3
+       notifempty
+       missingok
+}
+

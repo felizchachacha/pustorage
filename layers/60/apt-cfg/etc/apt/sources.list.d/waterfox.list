@@ -1,0 +1,7 @@
+#deb [trusted=yes] https://dl.bintray.com/hawkeye116477/waterfox-deb release main
+#deb http://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/xUbuntu_20.04/ /' > /etc/apt/sources.list.d/home:hawkeye116477:waterfox.list"
+deb http://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/Debian_10 /
+deb http://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/Debian_Testing /
+deb http://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/Debian_Unstable /
+deb http://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/xUbuntu_20.04 /
+deb http://download.opensuse.org/repositories/home:/hawkeye116477:/waterfox/xUbuntu_Next /

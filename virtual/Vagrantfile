@@ -1,0 +1,13 @@
+Vagrant.configure("2") do |config|
+  #config.vm.box = "kubuntu"
+  config.ssh.password = "vagrant"
+  config.vm.disk :dvd, name: "livecd", path: "../../../soft/images/SARDU/cdrom/kubuntu-20.04-desktop-amd64.iso"
+  config.vm.disk :dvd, name: "guestadd", path: "VBoxGuestAdditions_6.1.14.iso"
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 2048
+    vb.cpus = 2
+    # Display the VirtualBox GUI when booting the machine
+    vb.gui = true
+  end
+  config.vm.provision "shell", path: "init.bash"
+end

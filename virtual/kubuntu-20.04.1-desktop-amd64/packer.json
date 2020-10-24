@@ -1,0 +1,64 @@
+{
+    "builders": [
+      {
+        "name": "kubuntu",
+        "type": "virtualbox-iso",
+        "guest_os_type": "ubuntu-64",
+        "headless": false,
+  
+        "iso_url": "https://cdimage.ubuntu.com/kubuntu/releases/focal/release/kubuntu-20.04.1-desktop-amd64.iso",
+        "iso_checksum": "46b2ab9288d87ece797810f9850c0bcdbdd387feec6fba9dc8e9c3cef0504ed8",
+        "iso_checksum_type": "sha256",
+  
+        "ssh_username": "kubuntu",
+        "ssh_password": "vagrant",
+        "ssh_handshake_attempts": "20",
+
+        "http_directory": "http",
+        "memory": 2048,
+
+        "boot_wait": "5s",
+        "boot_command": [
+          "<enter><enter><f6><esc><wait> ",
+          "autoinstall ds=nocloud-net;s=http://{{ .HTTPIP }}:{{ .HTTPPort }}/",
+          "<enter>"
+        ],
+        "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
+        "guest_additions_path": "VBoxGuestAdditions_{{.Version}}.iso",
+        "virtualbox_version_file": ".vbox_version",
+        "vm_name": "packer-kubuntu-20.04.1-amd64",
+        "vboxmanage": [
+        [
+            "modifyvm",
+            "{{.Name}}",
+            "--memory",
+            "2048"
+        ],
+        [
+            "modifyvm",
+            "{{.Name}}",
+            "--cpus",
+            "2"
+        ]
+        ]
+      }
+    ],
+    "provisioners": [
+        {
+            "type": "shell",
+            "script": "scripts/init.sh",
+            "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'"
+        },
+        {
+            "type": "shell",
+            "script": "scripts/cleanup.sh",
+            "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'"
+        }    
+    ],
+    "post-processors": [{
+      "type": "vagrant",
+      "compression_level": "8",
+      "output": "output/kubuntu-20.04.1.box"
+    }]
+  }
+  

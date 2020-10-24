@@ -1,0 +1,77 @@
+{
+  "builders": [
+  {
+    "type": "vsphere-iso",
+
+    "vcenter_server": "{{user `var_vsphere_vcenter`}}",
+    "username": "{{user `var_vsphere_username`}}",
+    "password": "{{user `var_vsphere_password`}}",
+    "insecure_connection": "true",
+
+    "datacenter": "{{user `var_vsphere_datacenter`}}",
+    "cluster": "{{user `var_vsphere_cluster`}}",
+    "folder": "{{user `var_vsphere_template_folder`}}",
+    "datastore": "{{user `var_vsphere_datastore`}}",
+    "network_adapters": [
+      {
+        "network": "{{user `var_vsphere_network`}}",
+        "network_card": "vmxnet3"
+      }
+    ],
+    "convert_to_template": "true",
+
+    "vm_name": "{{user `var_vm_name`}}",
+    "guest_os_type": "{{user `var_vm_guestos`}}",
+
+    "CPUs": 1,
+    "RAM": 1024,
+    "disk_controller_type":  "{{user `var_vm_disk_controller`}}",
+    "storage": [
+      {
+        "disk_size": 51200,
+        "disk_thin_provisioned": true
+      }
+    ],
+    "notes": "{{user `var_vm_notes`}}",
+
+    "communicator":"ssh",
+    "ssh_username": "{{user `var_guest_username`}}",
+    "ssh_password": "{{user `var_guest_password`}}",
+
+    "iso_urls": "{{user `var_iso_url`}}",
+    "iso_checksum": "{{user `var_iso_checksum_type`}}:{{user `var_iso_checksum`}}",
+
+    "floppy_files": [
+      "./floppy/{{user `var_floppy_path`}}"
+    ],
+    "boot_command": [
+      "<esc><wait>",
+      "<esc><wait>",
+      "<enter><wait>",
+      "/install/vmlinuz",
+      " initrd=/install/initrd.gz",
+      " auto=true",
+      " priority=critical",
+      " debian-installer=en_US",
+      " locale=en_US",
+      " kbd-chooser/method=us",
+      " keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA console-setup/ask_detect=false",
+      " file=/media/preseed.cfg",
+      "<enter>"
+    ],
+      "shutdown_command": "echo '{{user `var_guest_password`}}' | sudo -S -E shutdown -P now"
+  }],
+  "provisioners": [{
+      "execute_command": "echo '{{user `var_guest_password`}}' | sudo -S -E bash '{{.Path}}'",
+      "scripts": [
+        "./scripts/ubuntu/update.sh",
+        "./scripts/ubuntu/cleanup.sh"
+      ],
+      "type": "shell"
+    },
+    {
+      "inline": "echo 'Template build complete ({{isotime \"2006-01-02 03:04:05\"}})!'",
+      "type": "shell"
+    }
+  ]
+}
