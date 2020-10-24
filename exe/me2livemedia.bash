@@ -3,7 +3,8 @@
 set -xe
 
 readonly MYDIR="$(dirname $(realpath ${0}))"
-readonly LIVEWRITEABLE=$("${MYDIR}"/get-livemedia-dev.bash)
+#readonly LIVEWRITEABLE=$("${MYDIR}"/get-livemedia-dev.bash)
+readonly LIVEWRITEABLE="/dev/disk/by-label/Ubuntu-Studio\\x2020_10\\x20amd64"
 readonly MYDRIVE=$(df -P "${MYDIR}" | awk 'END {print $1}')
 readonly DEF_MOUNTP="/media/live"
 
