@@ -6,4 +6,6 @@ set -xe
 
 #read -e -p "Enter timezone: " tz
 
-timedatectl set-timezone "Europe/Minsk"
+pip install -U tzupdate
+
+tzupdate

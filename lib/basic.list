@@ -37,6 +37,7 @@ ntfs-3g
 parted
 patch
 perl
+python3-pip
 pv
 rsync
 screen

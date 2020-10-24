@@ -91,7 +91,6 @@ perl
 psmisc
 python
 python3-pip
-python-pip-whl
 rdiff-backup
 re
 rename

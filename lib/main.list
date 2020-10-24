@@ -43,7 +43,6 @@ ndiff
 notmuch-vim
 octave
 python
-python-pip-whl
 python-setuptools
 rclone
 rclone-browser

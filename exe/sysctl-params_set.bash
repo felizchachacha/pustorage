@@ -4,8 +4,7 @@ set -x
 
 declare -A Params
  
-Params["vm.swappiness"]=0
-#Params["fs.inotify.max_user_watches"]=524288
+Params["vm.swappiness"]=1
 Params["fs.inotify.max_user_watches"]=1048576
 
 for key in ${!Params[@]}; do
