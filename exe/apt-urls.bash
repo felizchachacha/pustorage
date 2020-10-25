@@ -51,5 +51,4 @@ for arg in ${*}; do
 	fi
 done
 
-apt install -f
-apt --fix-broken install
+apt --fix-broken install -y 
