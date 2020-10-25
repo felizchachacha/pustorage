@@ -4,8 +4,7 @@ set -ex
 
 readonly ORIGPLACE=/usr/sbin/grub-probe.orig
 
-# grub-probe /
-# grub-probe: error: failed to get canonical path of `/cow'.
+readonly COWEXP=".*: error: failed to get canonical path of \`/cow'."
 
 declare -a Params=()
 
@@ -30,12 +29,18 @@ while [ ${#} -gt 0 ]; do
 			exit 0
 		;;
 		*)
-			Params+="${1}"
+			Params+=("${1}")
                         shift # past param
 		;;
 	esac
 done
 
+readonly ORIGOUT=$("${ORIGPLACE}" ${Params[@]} 2>&1 )
 
-"${ORIGPLACE}" ${Params[@]}
+if [[ "${ORIGOUT}" =~ ${COWEXP} ]]; then
+	echo zfs
+else
+	"${ORIGPLACE}" ${Params[@]}
+fi
+
 
