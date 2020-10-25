@@ -1,0 +1,45 @@
+#------------------------------------------------------------------------------#
+#                           UNOFFICIAL UBUNTU REPOS                            #
+#------------------------------------------------------------------------------#
+
+###### 3rd Party Binary Repos
+
+deb http://ppa.launchpad.net/xalt7x/kubuntu-focal/ubuntu focal main 
+#deb-src http://ppa.launchpad.net/xalt7x/kubuntu-focal/ubuntu focal main 
+
+#### Google Chrome Browser - http://www.google.com/linuxrepositories/
+## Run this command: wget -q https://dl.google.com/linux/linux_signing_key.pub -O- | sudo apt-key add -
+deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main
+
+#### MultiSystem - http://liveusb.info/dotclear/
+## Run this command: wget -q http://liveusb.info/multisystem/depot/multisystem.asc -O- | sudo apt-key add -
+deb http://liveusb.info/multisystem/depot all main
+
+#### Opera - http://www.opera.com/
+## Run this command: sudo wget -O - http://deb.opera.com/archive.key | sudo apt-key add -
+deb http://deb.opera.com/opera/ stable non-free
+
+#### Sonarr - https://sonarr.tv/
+## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA5DFFC
+deb https://apt.sonarr.tv/ master main
+
+#### Steam for Linux - http://store.steampowered.com/about/
+## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys F24AEA9FB05498B7
+deb [arch=i386] http://repo.steampowered.com/steam/ precise steam
+
+#### Tor: anonymity online - https://www.torproject.org
+## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 886DDD89
+deb http://deb.torproject.org/torproject.org bionic main
+
+deb http://ppa.launchpad.net/webupd8team/haguichi/ubuntu groovy main 
+#deb-src http://ppa.launchpad.net/webupd8team/haguichi/ubuntu groovy main 
+
+deb http://ppa.launchpad.net/webupd8team/y-ppa-manager/ubuntu groovy main 
+#deb-src http://ppa.launchpad.net/webupd8team/y-ppa-manager/ubuntu groovy main 
+
+####### 3rd Party Source Repos
+
+#### Tor: anonymity online (Source) - https://www.torproject.org
+## Run this command: sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 886DDD89
+#deb-src http://deb.torproject.org/torproject.org bionic main
+

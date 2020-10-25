@@ -19,7 +19,7 @@ pushd ${MYDIR}/..
 		if [[ "${mountpoint}" == '' ]]; then
 			mountpoint="${DEF_MOUNTP}"
 			if mount | grep -- "${DEF_MOUNTP}"; then
-				exe/ensure_path.bash "${DEF_MOUNTP}"
+				exe/ensure-path.bash "${DEF_MOUNTP}"
 				mount "${LIVEPARTDEV}" "${mountpoint}" -o noatime,rw
 			fi
 		fi

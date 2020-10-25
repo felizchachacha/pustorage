@@ -2,21 +2,23 @@
 
 set -xe
 
-readonly DWNLD_D="/opt/bfg"
 readonly DWNLD_LINK="https://repo1.maven.org/maven2/com/madgag/bfg/1.13.0/bfg-1.13.0.jar"
+readonly MYDIR="$(dirname $(realpath ${0}))"
+readonly TARGETJAR="/usr/local/lib/bfg.jar"
+readonly DWNLD_D="$(dirname ${TARGETJAR})"
 
-# java present
-../../exe/apt-is-installed.bash default-jre-headless || aptitude -y install default-jre-headless
+pushd ${MYDIR}
+	# java present
+	which java || aptitude -y install default-jre-headless
+	cp -rv --backup bfg/* /
+	../../exe/ensure-path.bash "${DWNLD_D}"
+popd
 
-# fetch bfg.jar
-[ -e "${DWNLD_D}" ] || mkdir ${DWNLD_D}"
-readonly LOGTMPFILE=$(mktemp /tmp/$(basename "${0}").XXXXXX)
 pushd "${DWNLD_D}"
-	wget -c "${DWNLD_LINK}" 2>&1 | tee ${LOGTMPFILE}
-	readonly DOWNLOADED_FNAME=$(tail -2 ${LOGTMPFILE} | awk -vFS='‘|’' '/saved/ {print $2}')
-	rm ${LOGTMPFILE} &
-	# install to /usr/local/bin
-	echo -e "#!/usr/bin/env bash -xe\njava -jar "${DOWNLOADED_FNAME}" \$@" | tee /usr/local/bin/bfg
-	# mark executable
-	chmod +x /usr/local/bin/bfg
+	readonly LOGTMPFILE=$(mktemp /tmp/$(basename "${0}").XXXXXX)
+		# fetch bfg.jar
+		wget -c "${DWNLD_LINK}" 2>&1 | tee "${LOGTMPFILE}"
+		readonly DOWNLOADED_FNAME=$(tail -2 "${LOGTMPFILE}" | awk -vFS='‘|’' '/saved/ {print $2}')
+		mv -v "${DOWNLOADED_FNAME}" "${TARGETJAR}" 
+	rm "${LOGTMPFILE}" &
 popd
