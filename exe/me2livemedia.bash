@@ -3,22 +3,24 @@
 set -xe
 
 readonly MYDIR="$(dirname $(realpath ${0}))"
-#readonly LIVEWRITEABLE=$("${MYDIR}"/get-livemedia-dev.bash)
-readonly LIVEWRITEABLE=$(realpath /dev/disk/by-label/Ubuntu-Studio\\x2020_10\\x20amd64)
+readonly LIVEPARTDEV=$("${MYDIR}"/get-livemedia-dev.bash)
 readonly MYDRIVE=$(df -P "${MYDIR}" | awk 'END {print $1}')
 readonly DEF_MOUNTP="/media/live"
 
 pushd ${MYDIR}/..
 
-	if [[ "${LIVEWRITEABLE}" == "${MYDRIVE}" ]]; then
-		echo "${MYDIR} we are on live media ${LIVEWRITEABLE}"
+	if [[ "${LIVEPARTDEV}" == "${MYDRIVE}" ]]; then
+		echo "${MYDIR} we are on live media ${LIVEPARTDEV}"
+	elif exe/get-ro-fss.sh | grep "${LIVEPARTDEV}"; then
+		echo "Live media is read-only"
+		exit 0
 	else
-		mountpoint=$(mount | awk "\$1==\"${LIVEWRITEABLE}\" {print \$3}")
+		mountpoint=$(mount | awk "\$1==\"${LIVEPARTDEV}\" {print \$3}")
 		if [[ "${mountpoint}" == '' ]]; then
 			mountpoint="${DEF_MOUNTP}"
 			if mount | grep -- "${DEF_MOUNTP}"; then
 				exe/ensure_path.bash "${DEF_MOUNTP}"
-				mount "${LIVEWRITEABLE}" "${mountpoint}" -o noatime,rw
+				mount "${LIVEPARTDEV}" "${mountpoint}" -o noatime,rw
 			fi
 		fi
 
@@ -29,6 +31,5 @@ pushd ${MYDIR}/..
 		
 		sync &
 	fi
-
 
 popd
