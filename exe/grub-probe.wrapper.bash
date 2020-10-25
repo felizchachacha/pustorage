@@ -2,19 +2,28 @@
 
 set -ex
 
-readonly ORIGPLACE=/usr/sbin/grub-probe.orig
-
+readonly TARGDIR="/usr/sbin"
+readonly ORIGPLACE="${TARGDIR}"/grub-probe.orig
 readonly COWEXP=".*: error: failed to get canonical path of \`/cow'."
+readonly THEPATH="${TARGDIR}"/"grub-probe"
+readonly ME="${0}"
+readonly MYDIR="$(dirname $(realpath ${ME}))"
+readonly Dependencies=(get-livemedia-dev.bash  get-ro-fss.sh)
 
 declare -a Params=()
 
 function install() {
 	set -x
-	readonly THEPATH="/usr/sbin/grub-probe"
-	readonly ME="${0}"
 	diff -dq "${ME}" "${THEPATH}" || if (( $? == 1)); then
-		[ -e "${ORIGPLACE}" ] || cp --backup "${THEPATH}" "${ORIGPLACE}"
+		if [ -e "${ORIGPLACE}" ]; then
+			file "${THEPATH}" | grep ELF && cp --backup "${THEPATH}" "${ORIGPLACE}" 
+		else
+			cp --backup "${THEPATH}" "${ORIGPLACE}"
+		fi
 		ln --backup "${ME}" "${THEPATH}" || cp --backup "${ME}" "${THEPATH}"
+		for d in ${Dependencies[@]}; do
+			ln --backup "${MYDIR}"/${d} "${TARGDIR}"/ || cp --backup "${ME}" "${TARGDIR}"/
+		done
 	fi
 }
 
@@ -38,7 +47,7 @@ done
 readonly ORIGOUT=$("${ORIGPLACE}" ${Params[@]} 2>&1 )
 
 if [[ "${ORIGOUT}" =~ ${COWEXP} ]]; then
-	echo zfs
+	"${MYDIR}"/get-livemedia-dev.bash
 else
 	"${ORIGPLACE}" ${Params[@]}
 fi
