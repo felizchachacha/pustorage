@@ -8,13 +8,12 @@ readonly MYDIR=$(dirname ${0})
 
 pushd ${MYDIR}
 
-../../exe/apt-is-installed.bash apcupsd || apt -y install apcupsd
+	../../exe/apt-is-installed.bash apcupsd || apt -y install apcupsd
 
-cp -rv --backup apcupsd/* /
+	cp -rv --backup apcupsd/* /
 
-systemctl restart apcupsd
+	systemctl restart apcupsd
 
-apcaccess status
-
+	apcaccess status &
 
 popd

@@ -1,0 +1,2 @@
+deb [trusted=yes] http://ppa.launchpad.net/turl/intelhwaccel/ubuntu maverick main 
+#deb-src [trusted=yes] http://ppa.launchpad.net/turl/intelhwaccel/ubuntu maverick main 

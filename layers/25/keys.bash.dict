@@ -2,3 +2,14 @@ declare -A Keys
 Keys["haguchi-logmein"]="C2518248EEA14886"
 Keys["teamviewer"]="https://download.teamviewer.com/download/linux/signature/TeamViewer2017.asc"
 Keys["ubuntustudio-ppa"]="1220A5ECBA1FE99F04CBF741F596CF7036BBAA6D"
+Keys["graphics-ppa"]="2388FF3BE10A76F638F80723FCAE110B1118213C" #nvidia
+Keys["x-swat-graphics-ppa"]="643DC6BD56580CEB1AB4A9F63B22AB97AF1CDFA9" #intel
+Keys["intel"]="https://download.01.org/gfx/RPM-GPG-KEY-ilg"
+Keys["oibaf"]="5ABCE68FF4633EA42E219156957D2708A03A4626" # updated free graphics drivers packages for radeon, intel and nvidia hardware
+Keys["angel-berlanas-intel"]="5F5C5E56F52FC5CAADB82696E2EFE2133C6EC5C4"
+Keys["turl-intelhwaccel"]="93AFD881B5F4DD8FE66FE539DF583AA15BA7D192"
+Keys["radeon-profile"]="2F716A4213A38850AACB81FB93562F724DD47F9D"
+Keys["kisak-mesa"]="EB8B81E14DA65431D7504EA8F63F0F2B90935439"
+Keys["darxus"]="AB0D56DBC0E682D29CD59549DCC9EDB29626882B"
+Keys["mint"]="A6616109451BBBF2"
+

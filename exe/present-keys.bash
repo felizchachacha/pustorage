@@ -5,6 +5,7 @@ set -xe
 readonly MYDIR=$(dirname $(realpath ${0}))
 readonly URLRE="(https?|ftp|file)://.*"
 readonly KEYSFNAME="keys.bash.dict"
+readonly KeyServers=("keyserver.ubuntu.com" "keyserver.linuxmint.com" "ha.pool.sks-keyservers.net")
 
 source "${KEYSFNAME}"
 echo ${Keys}
@@ -18,7 +19,9 @@ pushd ${MYDIR}/../lib/keys
 				wget -cO "${keyname}" "${v}"
 				apt-key add "${keyname}"
 			else
-				apt-key adv --keyserver keyserver.ubuntu.com --recv-keys "${v}"
+				for serv in ${KeyServers[@]}; do
+					apt-key adv --keyserver "${serv}" --recv-keys "${v}" && break
+				done
 			fi
 	done
 

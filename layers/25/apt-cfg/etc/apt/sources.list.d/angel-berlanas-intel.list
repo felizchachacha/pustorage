@@ -1,0 +1,2 @@
+deb [trusted=yes] http://ppa.launchpad.net/angel-berlanas/intel-lucid/ubuntu lucid main 
+#deb-src [trusted=yes] http://ppa.launchpad.net/angel-berlanas/intel-lucid/ubuntu lucid main 

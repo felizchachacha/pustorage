@@ -1,0 +1,5 @@
+deb [trusted=yes] http://ppa.launchpad.net/ubuntu-x-swat/updates/ubuntu focal main 
+#deb-src [trusted=yes] http://ppa.launchpad.net/ubuntu-x-swat/updates/ubuntu focal main 
+
+deb [trusted=yes] http://ppa.launchpad.net/ubuntu-x-swat/intel-graphics-updates/ubuntu quantal main 
+#deb-src [trusted=yes] http://ppa.launchpad.net/ubuntu-x-swat/intel-graphics-updates/ubuntu quantal main 

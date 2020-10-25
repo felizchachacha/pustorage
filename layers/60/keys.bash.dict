@@ -10,3 +10,11 @@ Keys["waterfoxbintray"]="https://bintray.com/user/downloadSubjectPublicKey?usern
 Keys["waterfoxsuse"]="https://download.opensuse.org/repositories/home:hawkeye116477:waterfox/xUbuntu_20.04/Release.key"
 Keys["skype"]="https://repo.skype.com/data/SKYPE-GPG-KEY"
 Keys["xalt7x"]="8718D33A1E18AF7EC6416643C5867B73AA69A7C1" # https://launchpad.net/~xalt7x/+archive/ubuntu/chromium-deb-vaapi and https://launchpad.net/~xalt7x/+archive/ubuntu/kubuntu-focal
+Keys["webupd8"]="7B2C3B0889BF5709A105D03AC2518248EEA14886"
+Keys["google"]="https://dl.google.com/linux/linux_signing_key.pub"
+Keys["multisystem"]="http://liveusb.info/multisystem/depot/multisystem.asc"
+Keys["opera"]="http://deb.opera.com/archive.key"
+Keys["sonarr"]="FDA5DFFC"
+Keys["steam"]="F24AEA9FB05498B7"
+Keys["tor"]="886DDD89"
+

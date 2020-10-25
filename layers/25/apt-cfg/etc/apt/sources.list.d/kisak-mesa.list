@@ -1,0 +1,5 @@
+deb http://ppa.launchpad.net/kisak/kisak-mesa/ubuntu focal main 
+# deb-src http://ppa.launchpad.net/kisak/kisak-mesa/ubuntu focal main 
+deb http://ppa.launchpad.net/kisak/turtle/ubuntu focal main 
+# deb-src http://ppa.launchpad.net/kisak/turtle/ubuntu focal main 
+

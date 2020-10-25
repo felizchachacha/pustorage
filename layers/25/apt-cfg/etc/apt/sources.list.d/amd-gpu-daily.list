@@ -1,0 +1,3 @@
+deb http://ppa.launchpad.net/darxus/linux-firmware-amdgpu-daily/ubuntu groovy main 
+#deb-src http://ppa.launchpad.net/darxus/linux-firmware-amdgpu-daily/ubuntu groovy main 
+
