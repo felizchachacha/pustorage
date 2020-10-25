@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -ex
+set -e
 
 readonly TARGDIR="/usr/sbin"
 readonly ORIGPLACE="${TARGDIR}"/grub-probe.orig
@@ -21,10 +21,10 @@ function install() {
 			cp --backup "${THEPATH}" "${ORIGPLACE}"
 		fi
 		ln --backup "${ME}" "${THEPATH}" || cp --backup "${ME}" "${THEPATH}"
-		for d in ${Dependencies[@]}; do
-			ln --backup "${MYDIR}"/${d} "${TARGDIR}"/ || cp --backup "${ME}" "${TARGDIR}"/
-		done
 	fi
+	for d in ${Dependencies[@]}; do
+		diff -dq "${d}" "${TARGDIR}"/"${d}" || (( $? == 1)) && ln --backup "${MYDIR}"/"${d}" "${TARGDIR}"/ || cp --backup "${MYDIR}"/"${d}" "${TARGDIR}"/
+	done
 }
 
 while [ ${#} -gt 0 ]; do
