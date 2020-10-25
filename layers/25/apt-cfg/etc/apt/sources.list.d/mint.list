@@ -1,0 +1,6 @@
+
+deb http://packages.linuxmint.com ulyana main upstream import backport
+deb http://packages.linuxmint.com ulyssa  main upstream import backport
+
+
+

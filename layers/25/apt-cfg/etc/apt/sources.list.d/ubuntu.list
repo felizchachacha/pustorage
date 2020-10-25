@@ -1,0 +1,25 @@
+# https://mirrors.ustc.edu.cn/repogen/
+
+# ipv4
+deb http://archive.ubuntu.com/ubuntu/ groovy main restricted universe multiverse
+deb http://security.ubuntu.com/ubuntu/ groovy-security main restricted universe multiverse
+deb http://archive.ubuntu.com/ubuntu/ groovy-updates main restricted universe multiverse
+
+# ipv6
+deb https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy main restricted universe multiverse
+deb-src https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy main restricted universe multiverse
+
+deb https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy-security main restricted universe multiverse
+deb-src https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy-security main restricted universe multiverse
+
+deb https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy-updates main restricted universe multiverse
+deb-src https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy-updates main restricted universe multiverse
+
+deb https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy-backports main restricted universe multiverse
+deb-src https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy-backports main restricted universe multiverse
+
+## Not recommended
+# deb https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy-proposed main restricted universe multiverse
+# deb-src https://ipv6.mirrors.ustc.edu.cn/ubuntu/ groovy-proposed main restricted universe multiverse
+
+
