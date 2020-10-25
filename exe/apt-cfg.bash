@@ -9,7 +9,7 @@ cp -rv --backup apt-cfg/* /
 apt update
 
 pushd ${MYDIR}
-	apt --fix-broken install
+	apt --fix-broken install -y
 
 	apt install -y $(cat ../lib/apt.list)
 
