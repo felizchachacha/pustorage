@@ -2,6 +2,11 @@
 
 set -e
 
+# debug
+set -x
+echo $*
+#exit
+
 readonly TARGDIR="/usr/sbin"
 readonly ORIGPLACE="${TARGDIR}"/grub-probe.orig
 readonly COWEXP=".*: error: failed to get canonical path of \`/cow'."
@@ -47,7 +52,8 @@ done
 readonly ORIGOUT=$("${ORIGPLACE}" ${Params[@]} 2>&1 )
 
 if [[ "${ORIGOUT}" =~ ${COWEXP} ]]; then
-	"${MYDIR}"/get-livemedia-dev.bash
+#	"${MYDIR}"/get-livemedia-dev.bash | tr -d 0-9
+	exit 0
 else
 	"${ORIGPLACE}" ${Params[@]}
 fi
