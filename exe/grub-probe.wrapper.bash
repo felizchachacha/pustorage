@@ -3,8 +3,8 @@
 set -e
 
 # debug
-set -x
-echo $*
+#set -x
+#echo $*
 #exit
 
 readonly TARGDIR="/usr/sbin"
@@ -13,7 +13,6 @@ readonly COWEXP=".*: error: failed to get canonical path of \`/cow'."
 readonly THEPATH="${TARGDIR}"/"grub-probe"
 readonly ME="${0}"
 readonly MYDIR="$(dirname $(realpath ${ME}))"
-readonly Dependencies=(get-livemedia-dev.bash  get-ro-fss.sh)
 
 declare -a Params=()
 
@@ -27,9 +26,6 @@ function install() {
 		fi
 		ln --backup "${ME}" "${THEPATH}" || cp --backup "${ME}" "${THEPATH}"
 	fi
-	for d in ${Dependencies[@]}; do
-		diff -dq "${d}" "${TARGDIR}"/"${d}" || (( $? == 1)) && ln --backup "${MYDIR}"/"${d}" "${TARGDIR}"/ || cp --backup "${MYDIR}"/"${d}" "${TARGDIR}"/
-	done
 }
 
 while [ ${#} -gt 0 ]; do
@@ -52,7 +48,6 @@ done
 readonly ORIGOUT=$("${ORIGPLACE}" ${Params[@]} 2>&1 )
 
 if [[ "${ORIGOUT}" =~ ${COWEXP} ]]; then
-#	"${MYDIR}"/get-livemedia-dev.bash | tr -d 0-9
 	exit 0
 else
 	"${ORIGPLACE}" ${Params[@]}
