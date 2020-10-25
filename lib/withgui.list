@@ -1,10 +1,10 @@
 alsa-firmware-loaders
-alsamixergui
 alsa-tools
 alsa-tools-gui
+alsamixergui
 apt-file
-aptitude
 apt-utils
+aptitude
 ark
 bash
 bash-completion
@@ -41,7 +41,6 @@ hyphen-ru
 iotop
 itop
 kcalc
-kdeadmin
 kde-baseapps
 kde-cli-tools
 kde-config-screenlocker
@@ -49,6 +48,7 @@ kde-config-sddm
 kde-plasma-desktop
 kde-spectacle
 kde-window-manager
+kdeadmin
 kimageformat-plugins
 kmix
 konsole
@@ -83,8 +83,8 @@ spellutils
 ssh
 ssh-askpass
 ssh-client
-sshpass
 ssh-server
+sshpass
 systempreferences.app
 systemsettings
 tar
@@ -106,7 +106,7 @@ xvfb
 zfs-dkms
 zfs-initramfs
 zfs-test
-zfsutils-linux
 zfs-zed
+zfsutils-linux
 zsh
 zssh
