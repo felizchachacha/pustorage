@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 readonly ORIGPLACE=/usr/sbin/grub-probe.orig
 
@@ -13,7 +13,10 @@ function install() {
 	set -x
 	readonly THEPATH="/usr/sbin/grub-probe"
 	readonly ME="${0}"
-	diff -dq "${THEPATH}" "${0}" || cp --backup "${THEPATH}" "${ORIGPLACE}" && cp --backup "${ME}" "${THEPATH}"
+	diff -dq "${ME}" "${THEPATH}" || if (( $? == 1)); then
+		[ -e "${ORIGPLACE}" ] || cp --backup "${THEPATH}" "${ORIGPLACE}"
+		ln --backup "${ME}" "${THEPATH}" || cp --backup "${ME}" "${THEPATH}"
+	fi
 }
 
 while [ ${#} -gt 0 ]; do
