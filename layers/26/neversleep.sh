@@ -1,1 +1,0 @@
-../../exe/neversleep.sh
