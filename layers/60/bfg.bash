@@ -14,11 +14,4 @@ pushd ${MYDIR}
 	../../exe/ensure-path.bash "${DWNLD_D}"
 popd
 
-pushd "${DWNLD_D}"
-	readonly LOGTMPFILE=$(mktemp /tmp/$(basename "${0}").XXXXXX)
-		# fetch bfg.jar
-		wget -c "${DWNLD_LINK}" 2>&1 | tee "${LOGTMPFILE}"
-		readonly DOWNLOADED_FNAME=$(tail -2 "${LOGTMPFILE}" | awk -vFS='‘|’' '/saved/ {print $2}')
-		mv -v "${DOWNLOADED_FNAME}" "${TARGETJAR}" 
-	rm "${LOGTMPFILE}" &
-popd
+wget -c "${DWNLD_LINK}" -O "${TARGETJAR}" 

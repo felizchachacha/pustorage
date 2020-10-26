@@ -3,6 +3,7 @@
 set -xe
 
 readonly MYDIR=$(dirname $(realpath ${0}))
+readonly KEYSCACHED=${MYDIR}/../lib/"trusted.gpg.d"
 readonly URLRE="(https?|ftp|file)://.*"
 readonly KEYSFNAME="keys.bash.dict"
 readonly KeyServers=("keyserver.ubuntu.com" "keyserver.linuxmint.com" "ha.pool.sks-keyservers.net")
@@ -10,7 +11,9 @@ readonly KeyServers=("keyserver.ubuntu.com" "keyserver.linuxmint.com" "ha.pool.s
 source "${KEYSFNAME}"
 echo ${Keys}
 
-pushd ${MYDIR}/../lib/keys
+pushd "${KEYSCACHED}"
+	
+	cp -blvu * /etc/apt/trusted.gpg.d/ || cp -bvu * /etc/apt/trusted.gpg.d/
 
 	for keyname in "${!Keys[@]}"; do
 		v=${Keys["${keyname}"]}
@@ -24,5 +27,7 @@ pushd ${MYDIR}/../lib/keys
 				done
 			fi
 	done
+
+	cp -blvu * /etc/apt/trusted.gpg.d/ || cp -bvu * /etc/apt/trusted.gpg.d/
 
 popd

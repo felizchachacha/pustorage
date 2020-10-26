@@ -3,9 +3,9 @@ alsa-firmware-loaders
 alsa-tools
 apcupsd
 apt-file
-aptitude
 apt-transport-https
 apt-utils
+aptitude
 arandr
 aufs-tools
 bash
@@ -107,8 +107,8 @@ spellutils
 ssh
 ssh-askpass
 ssh-client
-sshpass
 ssh-server
+sshpass
 strace
 sysstat
 tar
@@ -130,8 +130,8 @@ xml2
 zfs-dkms
 zfs-initramfs
 zfs-test
-zfsutils-linux
 zfs-zed
+zfsutils-linux
 zip
 zsh
 zssh
