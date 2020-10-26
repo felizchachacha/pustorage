@@ -8,6 +8,6 @@ pushd ${MYDIR}
 
 	../../exe/apt-urls.bash	fromurl.list
 
-	../../exe/aptilists.bash full-upgrade custom.list basic.list minimal.list withgui.list video.list
+	../../exe/aptilists.bash -y full-upgrade custom.list basic.list minimal.list withgui.list video.list
 
 popd

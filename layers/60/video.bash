@@ -8,6 +8,5 @@
 #aptitude -y install vdpauinfo libvdpau-va-gl1 mesa-vdpau-drivers
 
 # Then to test the VDPAU driver with mpv use:
-mpv --hwdec=vdpau yourvideofile
-
+#mpv --hwdec=vdpau yourvideofile
 

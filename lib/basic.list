@@ -1,9 +1,9 @@
 add-apt-key
 apcupsd
 apt-file
-aptitude
 apt-transport-https
 apt-utils
+aptitude
 bash-completion
 build-essential
 ca-certificates
@@ -32,14 +32,15 @@ magicrescue
 make
 mc
 myrescue
+ncdu
 net-tools
 nmap
 ntfs-3g
 parted
 patch
 perl
-python3-pip
 pv
+python3-pip
 rsync
 screen
 sed
@@ -58,7 +59,7 @@ unzip
 util-linux
 vim-nox
 wget
-zfsutils-linux
 zfs-zed
+zfsutils-linux
 zip
 zsh
