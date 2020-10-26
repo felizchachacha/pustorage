@@ -5,8 +5,6 @@ set -xe
 readonly MYDIR=$(dirname $(realpath ${0}))
 readonly DEFUSER="$(cat ${MYDIR}/../../lib/DEFUSER)"
 
-pushd ${MYDIR}
-popd
 pushd "${MYDIR}"/../..
 	rsync -svahHP --backup --progress lib/home/ /etc/skel
 	rsync -svahHP --backup --progress lib/home/ /root
