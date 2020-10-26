@@ -18,4 +18,4 @@ ID:\t${TVID}
 with a temp password:\t${TP}
 "
 
-[[ "${TVID}" == *[^[:space:]]* ]] && "${MYDIR}"/../../exe/sux.sh teamviewer
+[[ "${TVID}" == *[^[:space:]]* ]] && "${MYDIR}"/../../exe/sux.sh $(cat "${MYDIR}"/../../lib/DEFUSER) -c teamviewer
