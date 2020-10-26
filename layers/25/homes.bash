@@ -6,9 +6,9 @@ readonly MYDIR=$(dirname $(realpath ${0}))
 readonly DEFUSER="$(cat ${MYDIR}/../../lib/DEFUSER)"
 
 pushd "${MYDIR}"/../..
-	rsync -svahHP --backup --progress lib/home/ /etc/skel
-	rsync -svahHP --backup --progress lib/home/ /root
-	rsync -svahHP --backup --progress lib/home/ /home/"${DEFUSER}"
+	rsync -svahHP --backup --link-dest=lib/home/ --progress lib/home/ /etc/skel
+	rsync -svahHP --backup --link-dest=/etc/skel/ --progress lib/home/ /root
+	rsync -svahHP --backup --link-dest=/root/ --progress lib/home/ /home/"${DEFUSER}"
 	#exe/ensure-path.bash /root/.ssh /home/"${DEFUSER}"/.ssh
 	#chmod 0700 /etc/skel/.ssh /root/.ssh /home/"${DEFUSER}"/.ssh
 	#cat ./lib/PUB | tee /root/.ssh/authorized_keys > /home/"${DEFUSER}"/.ssh/authorized_keys
