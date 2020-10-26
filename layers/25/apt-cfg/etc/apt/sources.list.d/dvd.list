@@ -1,0 +1,4 @@
+#deb cdrom:[Ubuntu-Studio 20.10 _Groovy Gorilla_ - Release amd64 (20201022)]/ groovy main multiverse restricted universe
+
+# /cdrom/dists/groovy/Release.gpg
+deb file:///cdrom/ groovy main restricted universe
