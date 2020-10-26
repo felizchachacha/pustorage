@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
+
+readonly MYDIR=$(dirname ${0})
 
 teamviewer daemon enable
 #teamviewer daemon status # interactive
@@ -15,3 +17,5 @@ echo -e "Now you can try:
 ID:\t${TVID}
 with a temp password:\t${TP}
 "
+
+[[ "${TVID}" == *[^[:space:]]* ]] && "${MYDIR}"/../../exe/sux.sh teamviewer
