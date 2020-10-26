@@ -18,9 +18,10 @@ pushd "${KEYSCACHED}"
 	for keyname in "${!Keys[@]}"; do
 		v=${Keys["${keyname}"]}
 		# if such key file is imported successfully locally
-		apt-key add "${keyname}" || if [[ "${v}" =~ ${URLRE} ]]; then
-				wget -cO "${keyname}" "${v}"
-				apt-key add "${keyname}"
+		keyfile="${keyname}.gpg"
+		apt-key add "${keyfile}" || if [[ "${v}" =~ ${URLRE} ]]; then
+				wget -cO "${keyfile}" "${v}"
+				apt-key add "${keyfile}"
 			else
 				for serv in ${KeyServers[@]}; do
 					apt-key adv --keyserver "${serv}" --recv-keys "${v}" && break

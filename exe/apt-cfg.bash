@@ -13,6 +13,6 @@ pushd ${MYDIR}
 
 	apt install -y $(cat ../lib/apt.list)
 
-	apt-file update &
+	apt-file update 2>&1 >> /tmp/apt-file.log &
 
 popd
