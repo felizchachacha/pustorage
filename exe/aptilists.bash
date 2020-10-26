@@ -22,7 +22,7 @@ while [ ${#} -gt 0 ]; do
 			else
 				readonly Present=(${*})
 			fi
-			${BACKEND} ${AptilistsOptions[*]} ${ACT} $(sed 's/$/+/g' ${Present[*]}) $(sed 's/$/_/g' "${PURGELIST}") || apt --fix-broken install
+			${BACKEND} ${AptilistsOptions[*]} ${ACT} $(sed 's/$/+/g' ${Present[*]}) $(sed 's/$/_/g' "${PURGELIST}") || apt --fix-broken install -y
 			readonly CODE=$?
 			apt autoremove
 			exit ${CODE}
@@ -30,7 +30,7 @@ while [ ${#} -gt 0 ]; do
 		*)
 			readonly ACT=${1}
 			shift # past action
-			${BACKEND} ${AptilistsOptions[*]} ${ACT} ${*} || apt --fix-broken install
+			${BACKEND} ${AptilistsOptions[*]} ${ACT} ${*} || apt --fix-broken install -y 
 			CODE=$?
 			apt autoremove
 			exit ${CODE}
