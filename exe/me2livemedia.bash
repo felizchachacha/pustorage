@@ -19,6 +19,8 @@ pushd ${MYDIR}/..
 		if [[ "${mountpoint}" == '' ]]; then
 			mountpoint="${DEF_MOUNTP}"
 			if mount | grep -- "${DEF_MOUNTP}"; then
+				"${DEF_MOUNTP}" is already mounted
+			else
 				exe/ensure-path.bash "${DEF_MOUNTP}"
 				mount "${LIVEPARTDEV}" "${mountpoint}" -o noatime,rw
 			fi
